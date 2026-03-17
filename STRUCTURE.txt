@@ -1,0 +1,29 @@
+Four Eschatologies - Project Structure
+=======================================
+
+Root (/)
+  The live deployment source. Azure Static Web Apps CI/CD
+  builds from here on every push to master.
+  - index.html                  Vite entry point
+  - vite.config.js              Vite config (outputs to /build)
+  - package.json                Dependencies and build scripts
+  - four-eschatologies-framework.jsx   Main React component
+  - src/main.jsx                React app entry, mounts the component
+  - .github/workflows/          Azure SWA CI/CD workflow (auto-generated)
+  - .env.example                Template for SWA deployment token
+
+v1/
+  Archived copy of version 1. Read-only reference.
+  Same file structure as root at time of archival.
+  Do not modify — exists as a rollback reference.
+
+template/
+  Azure ARM deployment templates for provisioning the
+  Static Web App resource via CLI.
+  - template.json               ARM resource definition
+  - parameters.json             Resource parameters (name, region, repo, sku)
+
+Build & Deploy
+  - npm run dev                 Local dev server
+  - npm run build               Builds to /build
+  - Push to master              Triggers Azure CI/CD auto-deploy
